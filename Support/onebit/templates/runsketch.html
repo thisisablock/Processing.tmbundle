@@ -11,14 +11,14 @@
     var bundle_dir = "{{ bundle_dir }}";
 	command = "";
     cmd('cd "'+bundle_dir+'"');
-	cmd('cd "onebit/libs/processing-cmd-0178"');
+	cmd('cd "onebit/libs/processing-cmd"');
 	cmd('> log.onebit');
 	cmd('cat /dev/null > log.onebit');
 	
 	
 	//cmd("./processing --sketch='"+proj_dir+"' --output='"+scratch_dir+"' --run >> log.onebit");
 	
-	cmd('cd bash');
+	cmd('cd ../bash');
 	if (fullscreen=="YES") {
 		cmd('python run.py "YES" "'+proj_dir+'" "'+scratch_dir+'" "'+bundle_dir+'"');
 	} else {
@@ -55,7 +55,7 @@
 	
 	$('#log').click(function() {
 		command = "";
-         cmd('open -a "console.app" "$TM_BUNDLE_SUPPORT/onebit/libs/processing-cmd-0178/log.onebit"');
+         cmd('open -a "console.app" "$TM_BUNDLE_SUPPORT/onebit/libs/processing-cmd/log.onebit"');
          TextMate.system(command, null);
 	});
 

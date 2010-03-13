@@ -6,9 +6,9 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>cd "$TM_BUNDLE_SUPPORT"
-cd "onebit/libs/processing-cmd-0178"
+cd "onebit/libs/processing-cmd"
 
-./processing $TM_DIRECTORY --sketch=$TM_DIRECTORY --output=$TM_DIRECTORY/export/applet --export-applet	
+./processing --sketch=$TM_DIRECTORY --output=$TM_DIRECTORY/export/applet --export-applet	
 </string>
 	<key>input</key>
 	<string>none</string>
