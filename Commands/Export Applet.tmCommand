@@ -8,7 +8,7 @@
 	<string>cd "$TM_BUNDLE_SUPPORT"
 cd "onebit/libs/processing-cmd"
 
-./processing --sketch=$TM_DIRECTORY --output=$TM_DIRECTORY/export/applet --export-applet 	
+./processing --sketch=$TM_DIRECTORY --output=$TM_DIRECTORY/export/applet --export-applet --preferences=`dirname ~/Library/Processing/.`/preferences.txt
 </string>
 	<key>input</key>
 	<string>none</string>
