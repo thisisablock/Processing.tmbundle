@@ -9,12 +9,16 @@ def main(*args):
 	proj_dir = args[2].strip()
 	scratch_dir = args[3].strip()
 	bundle_dir = args[4].strip()
+	
+	# maybe catch non existence of file?
+	pref_file = os.path.expanduser("~/Library/Processing/preferences.txt")
+	
 	os.chdir(bundle_dir+'/onebit/libs/processing-cmd')
 	
 	if args[1].strip()=="NO":
-		cmd = "./processing --sketch='%s' --output='%s' --run >> log.onebit" % (proj_dir, scratch_dir);
+		cmd = "./processing --sketch='%s' --output='%s' --preferences='%s' --run >> log.onebit" % (proj_dir, scratch_dir, pref_file);
 	else:
-		cmd = "./processing --sketch='%s' --output='%s' --present >> log.onebit" % (proj_dir, scratch_dir);
+		cmd = "./processing --sketch='%s' --output='%s' --preferences='%s' --present >> log.onebit" % (proj_dir, scratch_dir, pref_file);
 	p = subprocess.Popen([cmd], shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 	p.wait()
 	stdout = p.stdout
