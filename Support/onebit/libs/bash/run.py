@@ -3,6 +3,7 @@ import os
 import commands
 import subprocess
 import pprint
+import tempfile
 
 def main(*args):  
 	pp = pprint.PrettyPrinter(indent=4)
@@ -12,6 +13,17 @@ def main(*args):
 	
 	# maybe catch non existence of file?
 	pref_file = os.path.expanduser("~/Library/Processing/preferences.txt")
+	
+	# check if file exists
+	if not os.path.isfile(pref_file):
+		# if no pref file exists, create the most basic preferences file
+		processing_folder = os.path.expanduser("~/Library/Processing")
+		if not os.path.exists(processing_folder):
+			os.makedirs(processing_folder)
+		f = tempfile.NamedTemporaryFile(delete=False)
+		f.write("sketchbook.path=%s" % os.path.expanduser("~/Documents/Processing"))
+		f.close()
+		os.rename(f.name, pref_file)			
 	
 	os.chdir(bundle_dir+'/onebit/libs/processing-cmd')
 	
