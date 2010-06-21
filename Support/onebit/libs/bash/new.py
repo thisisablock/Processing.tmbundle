@@ -4,7 +4,9 @@ import commands
 import tempfile
 
 def main(*args):
-    location = args[1]
+    location = args[1].rstrip()
+    if location[-1:] == "?":
+        location = location[:-1]
     sketch_name = args[2]
 
     folderpath = "%s/%s" % (location, sketch_name)

@@ -50,18 +50,27 @@ def main(*args):
 				err+=str(phrase)
 		else:
 			err+=str(line)
+	try:
+	    err= err.decode('utf-8')
+	except Exception, e:
+	    pass
+	try:
+	    err= err.decode('ascii')
+	except Exception, e:
+	    pass
+	try:
+	    out= out.decode('utf-8')
+	except Exception, e:
+	    pass
+	try:
+	    out= out.decode('ascii')
+	except Exception, e:
+	    pass
 	
-
-	err= pp.pprint(err)
-	out=pp.pprint(out)
-	if err and out:
-		return str(err)+str(out)
-	elif err:
-		return str(err)
-	elif out:
-		return str(out)
-	else:
-		return ""
+	if "Assertion" in err and "CocoaAppWindow" in err:
+	    err = ""
+	
+	return "%s%s" % (str(err), str(out))
     
 if __name__ == "__main__":
     sys.stdout.write(main(*sys.argv))
