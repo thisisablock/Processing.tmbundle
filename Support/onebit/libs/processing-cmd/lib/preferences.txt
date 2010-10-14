@@ -56,6 +56,9 @@
 # By default, no sketches currently open
 last.sketch.count=0
 
+# true if you want sketches to re-open when you next run processing
+last.sketch.restore=true
+
 
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -89,8 +92,10 @@ editor.font.macosx = Monaco,plain,10
 
 # anti-aliased text, turned off by default
 editor.antialias=false
+# linux fonts are hideous without anti-aliasing [0191]
+editor.antialias.linux=true
 
-# color to be used for background when 'external editor' enabled
+# currently using an external editor
 editor.external=false
 
 # caret blinking
@@ -168,6 +173,15 @@ run.display = 1
 # but the setting can be changed in the prefs dialog anyway
 #sketchbook.closing_last_window_quits = true
 #sketchbook.closing_last_window_quits.macosx = false
+
+editor.untitled.prefix=sketch_
+# old (pre-1.0) style for default sketch name
+#editor.untitled.suffix=yyMMdd
+# new (1.0) style for sketch naming. if you change this, be sure that 
+# this will work with your language settings. for instance, MMMdd won't work
+# on Korean-language systems because it will insert non-ascii characters.
+# http://code.google.com/p/processing/issues/detail?id=283
+#editor.untitled.suffix=MMMdd
 
 
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
